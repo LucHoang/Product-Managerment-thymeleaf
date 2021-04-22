@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+          <div class="notify" style="text-align: center; color: #4CAF50">
+              <div th:if="${success}">
+                  <span th:text="${success}"></span>
+              </div>
+          </div>
+
+        <div class="row">
+<!--          <%&#45;&#45;                    <div class="col-sm-8"><a href="product?action=create" class="button button" style="text-decoration: none">+ Add new product</a></div>&#45;&#45;%>-->
+          <div class="card-body row no-gutters align-items-center"><a th:href="@{/product/create}" class="button button" style="text-decoration: none">+ Add new product</a></div>
+<!--          <%&#45;&#45;          <div class="col-sm-8"><h2>Product <b>Details</b></h2></div>&#45;&#45;%>-->
+
+          <div class="col-sm-4">
+            <form th:action="@{/product/search}" method="get">
+              <div class="card-body row no-gutters align-items-center">
+                <div class="col">
+                  <input class="form-control form-control-lg form-control-borderless" name="text" type="search"
+                         placeholder="Search">
+                </div>
+                <!--end of col-->
+                <div class="col-auto">
+
+                  <button class="button button" type="submit" style="background-color: #0397d6">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+<!--          <%&#45;&#45;                    <i class="fa fa-sort"></i>&#45;&#45;%>-->
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Color</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <c:forEach items='${requestScope["listProduct"]}' var="product">-->
+          <tr th:each="row, rowStat : ${listProduct}">
+<!--            <td>${product.getId()}</td>-->
+<!--            <td>${product.getName()}</td>-->
+<!--            <td>${product.getPrice()}</td>-->
+<!--            <td>${product.getQuantity()}</td>-->
+<!--            <td>${product.getColor()}</td>-->
+<!--            <td>${category.get(product.getId())}</td>-->
+              <td th:text="${row.getId()}"></td>
+              <td th:text="${row.getName()}"></td>
+              <td th:text="${row.getPrice()}"></td>
+              <td th:text="${row.getQuantity()}"></td>
+              <td th:text="${row.getColor()}"></td>
+              <td></td>
+            <td>
+              <a th:href="@{/product/{id}/view(id=${row.getId()})}" class="view" title="View"
+                 data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+              <a th:href="@{/product/{id}/edit(id=${row.getId()})}" class="edit" title="Edit"
+                 data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+              <a th:href="@{/product/{id}/delete(id=${row.getId()})}" class="delete" title="Delete"
+                 data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+            </td>
+          </tr>
+<!--        </c:forEach>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
