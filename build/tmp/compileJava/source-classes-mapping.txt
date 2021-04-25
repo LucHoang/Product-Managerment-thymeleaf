@@ -1,14 +1,16 @@
+com/model/Category.java
+ com.model.Category
 com/model/Product.java
  com.model.Product
 AppConfig.java
  AppConfig
 WebConfig.java
  WebConfig
-com/service/ProductService.java
- com.service.ProductService
-com/model/Category.java
- com.model.Category
 com/service/IProductService.java
  com.service.IProductService
+com/service/ProductService.java
+ com.service.ProductService
+com/model/ProductForm.java
+ com.model.ProductForm
 com/controller/ProductController.java
  com.controller.ProductController

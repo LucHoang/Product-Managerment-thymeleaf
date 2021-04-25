@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<form class="form-horizontal" th:action="@{/product/update}" th:object="${product}" method="post">
+<form class="form-horizontal" th:action="@{/product/update}" th:object="${product}" method="post" enctype="multipart/form-data">
   <fieldset>
 
     <!-- Form Name -->
@@ -50,6 +50,17 @@
       <div class="col-md-4">
         <input id="product_weight" name="description" class="form-control input-md" required="" type="text" th:field="*{description}">
 
+      </div>
+    </div>
+
+    <!-- File Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="filebutton">Image</label>
+      <div th:if="*{image}">
+        <img width="100" height="100" th:src="@{'/Tai-ve/' + *{image}}" alt="">
+      </div>
+      <div class="col-md-4">
+        <input id="filebutton" name="filebutton" class="input-file" type="file" th:field="*{image}">
       </div>
     </div>
 

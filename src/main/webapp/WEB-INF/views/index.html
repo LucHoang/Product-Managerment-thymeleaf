@@ -48,7 +48,7 @@ integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8t
           <th>Price</th>
           <th>Quantity</th>
           <th>Color</th>
-          <th>Category</th>
+          <th>Image</th>
           <th>Action</th>
         </tr>
         </thead>
@@ -66,7 +66,7 @@ integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8t
               <td th:text="${row.getPrice()}"></td>
               <td th:text="${row.getQuantity()}"></td>
               <td th:text="${row.getColor()}"></td>
-              <td></td>
+              <td><img width="100" height="100" th:src="@{'/Tai-ve/' + ${row.image}}" alt=""></td>
             <td>
               <a th:href="@{/product/{id}/view(id=${row.getId()})}" class="view" title="View"
                  data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>

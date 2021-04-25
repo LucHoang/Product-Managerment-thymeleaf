@@ -9,9 +9,28 @@ public class Product {
     private String color;
     private String description;
     private int category;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Product() {
 
+    }
+
+    public Product(int id, String name, float price, int quantity, String color, String description, String image) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.color = color;
+        this.description = description;
+        this.image = image;
     }
 
     public Product(int id, String name, float price, int quantity, String color, String description) {
